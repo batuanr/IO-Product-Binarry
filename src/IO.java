@@ -4,12 +4,12 @@ import java.util.List;
 
 public class IO {
 
-    public static void writeFile(String url, List<Product> products){
+    public static <T> void writeFile(String url, List<T> list){
         FileOutputStream fos;
         try {
             fos = new FileOutputStream(url);
             ObjectOutputStream oos = new ObjectOutputStream(fos);
-            oos.writeObject(products);
+            oos.writeObject(list);
             oos.close();
             fos.close();
         } catch (FileNotFoundException e) {
@@ -18,13 +18,13 @@ public class IO {
             e.printStackTrace();
         }
     }
-    public static List<Product> readToFile(String url){
-        List<Product> products = new ArrayList<>();
+    public static <T>List<T> readToFile(String url){
+        List<T> list = new ArrayList<>();
         FileInputStream fis;
         try {
             fis = new FileInputStream(url);
             ObjectInputStream ois = new ObjectInputStream(fis);
-            products = (List<Product>) ois.readObject();
+            list = (List<T>) ois.readObject();
             ois.close();
             fis.close();
         } catch (FileNotFoundException e) {
@@ -34,7 +34,7 @@ public class IO {
         } catch (ClassNotFoundException e) {
             e.printStackTrace();
         }
-        return products;
+        return list;
     }
 
 }

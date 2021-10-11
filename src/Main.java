@@ -44,12 +44,10 @@ public class Main {
 
     public static void findInfo(){
         Scanner s = new Scanner(System.in);
-        System.out.println("Nhập url");
-        String url = s.nextLine();
         System.out.println("Nhập code");
         String code = s.nextLine();
         try {
-            Product product =manager.findProduct(url, code);
+            Product product =manager.findProduct( code);
             System.out.println(product);
         } catch (Exception e) {
             System.out.println("Sản phẩm không tồn tại");;

@@ -26,8 +26,8 @@ public class Manager {
         products.add(product);
         IO.writeFile(PRODUCT, products);
     }
-    public Product findProduct(String url, String code) throws Exception{
-        for (Product product: IO.readToFile(url)){
+    public Product findProduct(String code) throws Exception{
+        for (Product product: products){
             if(product.getCode().equals(code)){
                 return product;
             }
