@@ -3,7 +3,7 @@ import java.util.Scanner;
 public class Main {
     static Manager manager = new Manager();
     public static void main(String[] args) {
-        int choice = 0;
+        int choice;
         while (true){
             Scanner s = new Scanner(System.in);
             System.out.println("1 Show all");
@@ -38,8 +38,7 @@ public class Main {
         String code = s.nextLine();
         System.out.println("Nhập tên");
         String name = s.nextLine();
-        Product product = new Product(code, name);
-        return product;
+        return new Product(code, name);
     }
 
     public static void findInfo(){
@@ -50,7 +49,7 @@ public class Main {
             Product product =manager.findProduct( code);
             System.out.println(product);
         } catch (Exception e) {
-            System.out.println("Sản phẩm không tồn tại");;
+            System.out.println("Sản phẩm không tồn tại");
         }
     }
 }
